@@ -1,0 +1,19 @@
+800 - success for every operation
+
+// Schedulig problems
+
+700 - scheduling error another event is there
+701 - scheduling error event is in working hours
+
+
+
+// Querying problems 
+
+710 - couldn't connect to database
+711 - couldn't select the table
+712 - couldn't create a database
+713 - couldn't create a table
+714 - error in  adding a query
+715 - error in updating a query
+716 - error in removing a query
+

@@ -1,0 +1,28 @@
+.docadd {
+	background-color : #0039e6 ;
+}
+.patientadd {
+	background-color : #33cccc ;
+}
+.note {
+	background-color : #df9f9f;
+}
+.referadd {
+	background-color : skyblue;
+}
+.checkedin {
+	background-color : #ff8c1a;
+}
+.checkedout {
+	background-color : #7300e6;
+}
+.docconf {
+	background-color :  #00cc00;
+	
+}
+.patientconf {
+	background-color : #990099;
+}
+.requestconf {
+    background-color : #ff9999;
+}

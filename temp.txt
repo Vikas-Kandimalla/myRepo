@@ -1,0 +1,13 @@
+
+
+
+table.mw-event-table = div.mw-events = (width to be set);
+
+table.mw-event-table = div.mw-over-hide = (height to be set);
+
+
+// week - view 
+
+
+aw-axis : 100px
+

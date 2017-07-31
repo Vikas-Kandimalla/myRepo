@@ -1,0 +1,232 @@
+    
+    
+    
+    placing events
+    
+    
+    /*        var flag = 1; var i = 0;
+                    numofevents = res.events[0].numofevents;
+                  
+        
+					
+					var tempdate,inc = 0,incflag = 0;
+                    var j=0;
+			
+                    var p = 0;
+                
+                // adding the events
+                    for ( i =1; i <= numofevents ; i++) {
+                                
+                           
+                    
+                            
+                           // This is loop is for month-view to hide the events
+        
+                                
+								if ( j == 0) {   // if it is the first event in that day then add the event with null class
+						addevent(res.events[i].ID,res.events[i].name,res.events[i].eventdate,res.events[i].eventtime,res.events[i].eventduration,null,res.events[i].eventstatus);			
+						tempdate = res.events[i].eventdate;
+						j++;
+				                            }
+                            
+                            // now j is 1
+			  
+			
+			   else if ( j  != 0 ) {	// The second event will always go through this loop 
+				  if ( tempdate == res.events[i].eventdate) {     // if second event is on the same date.
+					  if ( j > 0) {
+						  incflag = 1;                     
+						  //alert(i);
+                          ofdate[inc] = { 'id' : i,'date' : tempdate , 'numofevesinthatdate' : (j+1)}; 
+                    //      console.log(ofdate[inc]);
+                    //      console.log(' INC : ' + inc);
+                          //ofdate  store the last event in a given date with no.of events in that date
+					  }
+					
+					    if ( j > 2) { // max limit is three j starts from 0. other than three make _class = hideevents and add view more option
+							
+						  addevent(res.events[i].ID,res.events[i].name,res.events[i].eventdate,res.events[i].eventtime,res.events[i].eventduration,'hideevents',res.events[i].eventstatus);
+						  
+						  if ( p == 0) {
+							
+							viewmore(res.events[i].eventdate);
+							p = 1;
+						}
+						
+						  
+					  }
+					  else { // for j < 2 just add the events.
+						  addevent(res.events[i].ID,res.events[i].name,res.events[i].eventdate,res.events[i].eventtime,res.events[i].eventduration,null,res.events[i].eventstatus);
+					  }
+                                // increment the j as it is on the same date
+					  j++;
+				  }
+				  else {  // if the next event is on another date . Then add the event.
+					addevent(res.events[i].ID,res.events[i].name,res.events[i].eventdate,res.events[i].eventtime,res.events[i].eventduration,null,res.events[i].eventstatus);
+					  tempdate = res.events[i].eventdate;
+					  j = 1;  // j is 1 since j = 0 is already printed.
+					
+					 if ( incflag == 1) {
+						 
+					incflag = 0;
+					  inc++;
+					 }
+					  p = 0;
+				  }
+			  }
+			  
+			
+			  
+		  }
+		  
+                // position events algo First position all the events normally
+                
+		  for ( i =1; i <= numofevents ; i++) {
+			  positionevent(res.events[i].ID,res.events[i].eventtime,res.events[i].eventduration);
+			} 
+		 
+// SETTING THE OVERLAPPING POSITIONS Algorithm -1 
+ -- should comment here
+			var xa = 0;
+			for(xa = 0 ; xa < ofdate.length ; xa++){
+				console.log(ofdate[xa].date);
+				var endid = ofdate[xa].id;
+				
+			var i=0,j=0,n=ofdate[xa].numofevesinthatdate;
+			var id = endid - n + 1;
+			while ( i <  n){
+		
+				for ( j = n-1 ; j > i ; j--) {
+					
+					console.log('endid  = ' + (id+j) + '  sid = ' + (id+i) );
+				
+				var tempd1,tempt1,tempt2,h1,h2,m1,m2;				
+					
+					
+					tempd1 = parseInt(res.events[id + i].eventduration); 
+				tempt1 = res.events[id + i].eventtime;
+				tempt2 = res.events[(id + j)].eventtime;
+			
+				h1 = parseInt(tempt1.slice(0,2));
+				m1 = parseInt(tempt1.slice(3,5));
+				h2 = parseInt(tempt2.slice(0,2));
+				m2 = parseInt(tempt2.slice(3,5));
+			var diff = ((h2-h1)*60 + m2-m1) - tempd1;		
+					
+					
+					
+					if ( diff < 0) {
+					console.log(tempt1 + '  ' + tempt2);
+					var numofsets = j - i +1;
+					console.log("Setting the things" + ' i=' + (i) + ' j = ' + j + 'num of position settings : ' + numofsets );
+					var g = 0;
+					width =  140/numofsets;
+					for ( g = i ; g <= j ; g++) {
+						positionevent(res.events[id+g].ID,res.events[id+g].eventtime,res.events[id+g].eventduration,width,((g-i)*width - 5*(g-i)),(10+g-i));
+					}
+					i = j;
+				
+					break;
+					}
+				}
+				i++;
+				
+			}
+			}
+			
+			// SETTING THE OVERLAPPING events II Algoritm -II
+-- end the first comment here 
+                
+        // Now go for the ovelapping events we have the increment factor i as ID. and ofdate data
+var xb = 0;
+for(xb = 0 ; xb < ofdate.length ; xb++){ // for every xb in ofdate
+	var endid = ofdate[xb].id;             // get the last id
+	//		console.log(ofdate[xb]);	
+			var i=1,j=1,n=ofdate[xb].numofevesinthatdate; 
+			var id = endid - n + 1;              // get the first id
+			var tempid;                           // temp to store the last id.
+			
+			var tempd1,tempt1,tempt2,tempd2,h1,h2,m1,m2,inc = 0,diff;				
+					
+					
+				
+				
+			
+			
+			
+			while ( i < n){                      // i = 1 to last event
+                                                    
+				
+				tempd1 = parseInt(res.events[id+i-1].eventduration) + inc; 
+				tempt1 = res.events[id+i-1].eventtime;
+				h1 = parseInt(tempt1.slice(0,2));
+				m1 = parseInt(tempt1.slice(3,5));
+				
+				tempd2 = parseInt(res.events[id+i].eventduration) ; 
+				tempt2 = res.events[id+i].eventtime;
+				h2 = parseInt(tempt2.slice(0,2));
+				m2 = parseInt(tempt2.slice(3,5));
+				
+				var height = (h2-h1)*60 + (m2-m1);        // change time to height if event2 minus event1
+				
+				if (height < tempd1) {    // if height is less than duration of event1 then Then it is overlapping note the j
+					
+					j = j + 1;
+				
+					
+				}
+				else {      // If it is not overlapping 
+					
+					var k = 0;
+				
+				
+					var width = 190/j;
+				for ( k = i-j; k < i; k++) {
+					
+				positionevent(res.events[id+k].ID,res.events[id+k].eventtime,res.events[id+k].eventduration,(width),((k-i+j)*width),(10+k-i+j));
+					}
+					j = 1;
+					
+				}
+				i++;
+				
+				
+				
+				
+			}
+			if ( j != 1 ) {
+				var k = 0;
+				
+				var width = 190/j;
+				for ( k = n-j; k < n; k++) {
+                    
+                    
+				
+			if ( k != 0)	{
+				positionevent(res.events[id+k].ID,res.events[id+k].eventtime,res.events[id+k].eventduration,(width),((k -n + j)*width),(10+k));
+			}
+			else {
+				positionevent(res.events[id+k].ID,res.events[id+k].eventtime,res.events[id+k].eventduration,(width),0,(10+k));  
+			}
+		
+					}
+			}
+			
+}
+			
+			
+			
+			
+			
+	
+			  
+		
+								
+			
+            drag_mw();
+            drag_aw();
+            drag_ad();
+            resize();
+            resize_window();
+                */
+        

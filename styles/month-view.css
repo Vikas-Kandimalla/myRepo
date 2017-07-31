@@ -1,0 +1,85 @@
+
+
+table.mw-event-table , div.mw-over-hide , tr.mw-event-container{
+    height : 115px;
+}
+
+
+table.mw-container {
+            border : 1px solid grey;
+            border-collapse: collapse;
+            table-layout: fixed;
+          
+            
+            
+        }
+		
+div.mw-over-hide {
+			overflow : hidden;
+			}
+div.view-more {
+			font-family : Arial, Helvetica, sans-serif;
+			font-size : 80%;
+		}
+div.view-more > a {
+			font-family : Arial, Helvetica, sans-serif;
+			font-size : 100%;
+		}
+div.view-more > a:hover {
+			text-decoration : underline;
+		}
+div.hideevents {
+			display : none;
+		}
+div.view-less a {
+			font-family : Arial, Helvetica, sans-serif;
+			font-size : 80%;
+		}
+		
+table.mw-event-table {
+            border : 0;
+            table-layout : fixed;
+            border-collapse : collapse ;
+            padding: 0px;    
+        }
+ th.mw-weekday {
+           
+        }
+td.no-date {
+            font-family : "Comic Sans MS", cursive, sans-serif;
+            color : #bfbfbf;
+            text-align : right;
+            vertical-align : text-top;
+    
+}
+td.mw-droppable{
+            font-family : "Comic Sans MS", cursive, sans-serif;
+            color : #737373;
+            text-align : right;
+            vertical-align : text-top;
+}
+
+
+div.mw-events {
+           
+            white-space: nowrap; 
+            overflow : hidden; 
+            text-overflow : clip; 
+            vertical-align : text-top; 
+			border-radius : 5px;
+            text-align : left;
+            border : 1px solid blue;
+            
+        }
+div.mw-events > a {
+            color: black;
+            text-decoration: none;
+			font-size : 90%;
+            
+            
+        }
+div.mw-events > a {
+            
+            background-color :deepskyblue;
+            
+        }

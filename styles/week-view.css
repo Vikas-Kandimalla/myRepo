@@ -1,0 +1,130 @@
+
+.aw-set-width {
+	width : 200px;
+}
+
+.aw-axis {
+    width : 75px;
+}
+
+
+div.aw-scrollable {
+            position: absolute;
+            height : 700px;
+           /* width : 1150px;
+            */
+			overflow-y : scroll;
+            padding: 0px;
+            border : 1px solid #a6a6a6;
+            border-style: none none solid none;
+            
+        }
+
+
+span.aw-time-head {
+    font-family : "Comic Sans MS", cursive, sans-serif;
+    color: #737373;
+    font-size: 120%;
+} 
+
+th.aw-week-head {
+    font-family : Arial, Helvetica, sans-serif;
+    color: grey;
+    height : 20px;
+	border : 1px solid darkblue;
+}
+
+
+td.aw-time-grid-a {
+	border : 1px dashed #a6a6a6;
+	border-style : solid solid none none;
+}
+td.aw-time-grid-b {
+	border : 1px dashed #a6a6a6;
+	border-style : dashed solid none none;
+}
+tr.aw-time-grid-1 {
+	border : 1px dashed #a6a6a6;
+	border-style : solid solid none none;
+}
+tr.aw-time-grid-2 {
+	border : 1px dashed #a6a6a6;
+	border-style : dashed solid none none;
+}
+
+        div.aw-vertical-lines {
+            position : relative;
+            height : 2400px;
+            padding: 0px;
+            
+            
+        }
+		thead.aw-head {
+			position : static;
+			z-index : 20;
+            font-size : 120%;
+			}
+		
+div.aw-vertical-lines > table {
+            border : 1px solid #a6a6a6;
+            }     
+        div.event-aw {
+            position: absolute;
+            border : 1px solid #003cb3;
+            white-space: nowrap; 
+            overflow : hidden; 
+            text-overflow : clip;
+            z-index : 2;
+            margin-left: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            
+        }
+		div.event-aw > div.aw-events   {
+			padding-left : 6px;
+			color : white;
+			font-family : "Comic Sans MS", cursive, sans-serif;
+			font-size : 80%;
+		}
+div.event-aw > div.aw-drag {
+    
+    width : auto;
+    height : auto;
+    background-color: black;
+    align-content: center;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+	    font-size: 90%;
+	font-family : "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    cursor: pointer;
+}
+
+div.drag:hover {
+     width : auto;
+    height : 15px;
+    background-color: #2196c4;
+    align-content: center;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+}
+
+       
+        div.aw-time-grid {
+            position :absolute;
+            z-index : 1;
+            height : auto;
+            width : auto;
+            top : 0px;
+            left : 0px;
+            right: 0px;
+           
+        }
+
+
+        
+
+       

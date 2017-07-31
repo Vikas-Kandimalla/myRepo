@@ -1,0 +1,121 @@
+<!DOCTPYE html>
+<html>
+<head>
+    
+    <link href="jquery/jquery-ui.theme.css" rel="stylesheet">
+    <link href="jquery/jquery-ui.css" rel="stylesheet">
+    <script src='jquery/jquery.js'></script>
+    <script src='jquery/jquery-ui.js'></script>
+    
+<script>
+function repeateventform() {
+    
+    
+    var val = document.getElementById('addevent-repeat-status');
+   // console.log(val.checked);
+    if ( val.checked) {
+        document.getElementsByClassName('repeat_data')[0].style.display = "block";
+        repeat_data_type_1();
+    }
+    else {
+     document.getElementsByClassName('repeat_data')[0].style.display = "none";   
+    }
+}
+function repeat_data_type_1() {
+    
+    var type = document.getElementById("repeat-data-type").value;
+    var arr = ['days','weeks','months','years'];
+    document.getElementById("repeat-data-type-1").innerHTML = arr[type];
+  //  console.log(arr[type]);
+    
+    if ( type == 1){
+       var temp = document.getElementById("repeat-data-week");
+        temp.style.display = 'block';
+    }
+    
+    else {
+                var temp = document.getElementById("repeat-data-week");
+                temp.style.display = 'none';
+        
+        }
+}
+</script>    
+    <script>
+    $(document).ready(function () {
+        repeateventform();
+    });
+    </script>
+</head>
+    <body>
+    <div id="addevent-form" style = "border : 1px solid grey; width : auto" align = "center">
+        <h2>Please enter the details</h2>
+            
+        <div>
+         <label>Name&nbsp;:&nbsp;</label>   
+            <input type = "text" id="addevent-name" placeholder="Name" name="name">
+        </div>
+        <br>
+        <div>
+            <label>Date&nbsp;:&nbsp;</label>
+            <input type = "text" id="addevent-date-picker" placeholder="day" name="date">
+        </div>
+        <br>
+        <div>
+            <label>Time&nbsp;:&nbsp;</label>
+            <input type = "time" id="addevent-time" name="time" placeholder="time">
+        </div>
+        <br>
+        <div>
+            <label>confirmed </label>
+            <input type="checkbox" id="addevent-status" value="6">
+        </div>
+        <br>
+        <div>
+            <label>Duration&nbsp;:</label>
+                 <select name="eventduration" id="addevent-duration">
+                    <option value="15">15 mins</option>
+                    <option value="30">30 mins</option>
+                    <option value="60">1 hour</option>
+                    <option value="120">2 hours</option>
+                  </select>
+        </div>
+        <br>
+        
+        <div class="repeat_status">
+            <label>repeat event : </label>
+            <input type="checkbox" id = "addevent-repeat-status" onchange="repeateventform()">
+        </div>
+        <div class="repeat_data">
+        <label>Repeat</label>
+        <select id = "repeat-data-type" onchange = "repeat_data_type_1()">
+        <option value="0">Daily</option>
+        <option value="1">Weekly</option>
+        <opiton value="2">Monthly</opiton>
+        <option value="3">Yearly</option>
+        </select>
+        <label>&nbsp;&nbsp;every&nbsp;&nbsp;</label>
+        <input type="number" id="repeat-data-length" size = "2">
+        <span id = "repeat-data-type-1"></span>
+           
+        <div id = "repeat-data-week">
+        <span>On : </span>
+        <label>Sun </label><input type="checkbox" id = "repeat-data-week-0">    
+        <label>Mon </label><input type="checkbox" id = "repeat-data-week-1">    
+        <label>Tue </label><input type="checkbox" id = "repeat-data-week-2">    
+        <label>Wed </label><input type="checkbox" id = "repeat-data-week-3">    
+        <label>Thu </label><input type="checkbox" id = "repeat-data-week-4">    
+        <label>Fri </label><input type="checkbox" id = "repeat-data-week-5">    
+        <label>Sat </label><input type="checkbox" id = "repeat-data-week-6">    
+        </div>   
+        
+        </div>
+        
+        <div>
+            <button class="bform">Submit</button>
+        </div>        
+            
+            
+        </div>
+        
+    </body>    
+    </html>
